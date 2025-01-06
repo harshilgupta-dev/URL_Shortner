@@ -1,0 +1,18 @@
+server:
+  port: 7000
+spring:
+  datasource:
+    username: postgres
+    password: postgres
+    url: jdbc:postgresql://urlshort.cbiuiiy08ren.us-east-1.rds.amazonaws.com:5432/urlShort
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+resilience4j:
+  ratelimiter:
+    instances:
+      shortLinkLimiter:
+        limit-refresh-period: 4s
+        limit-for-period: 2
+        timeout-duration: 0s
